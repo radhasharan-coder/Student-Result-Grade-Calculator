@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class XI Examination Result</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="sheet">
+    <header class="masthead">
+      <div class="school-name">
+        <div class="seal">R</div>
+        <div><input id="collegeName" class="college-name" type="text" value="Regional College" aria-label="College name" title="Edit college name"><span>Student Examination Record</span></div>
+      </div>
+      <button id="themeToggle" type="button" class="theme-button">Dark page</button>
+    </header>
+
+    <div class="title-row">
+      <div><span>FORM / RESULT</span><h1>Marksheet Calculator</h1></div>
+      <p>Academic year<br><strong>2025–26</strong></p>
+    </div>
+
+    <div class="main-grid">
+      <section class="entry">
+        <h2><b>1.</b> Candidate particulars</h2>
+        <form id="resultForm" novalidate>
+          <div class="candidate-name">
+            <label for="name">Name of candidate</label>
+            <input id="name" type="text" placeholder="Write full name" autocomplete="name">
+            <small id="nameError" class="error"></small>
+          </div>
+
+          <h2 class="subjects-title"><b>2.</b> Subject marks</h2>
+          <div class="subject-list">
+            <div class="subject-row"><label for="maths">01 &nbsp; Mathematics</label><div><input id="maths" type="number" min="0" max="100" placeholder="00"><span>/ 100</span></div><small id="mathsError" class="error"></small></div>
+            <div class="subject-row"><label for="physics">02 &nbsp; Physics</label><div><input id="physics" type="number" min="0" max="100" placeholder="00"><span>/ 100</span></div><small id="physicsError" class="error"></small></div>
+            <div class="subject-row"><label for="chemistry">03 &nbsp; Chemistry</label><div><input id="chemistry" type="number" min="0" max="100" placeholder="00"><span>/ 100</span></div><small id="chemistryError" class="error"></small></div>
+            <div class="subject-row"><label for="english">04 &nbsp; English</label><div><input id="english" type="number" min="0" max="100" placeholder="00"><span>/ 100</span></div><small id="englishError" class="error"></small></div>
+            <div class="subject-row"><label for="computer">05 &nbsp; Computer Science</label><div><input id="computer" type="number" min="0" max="100" placeholder="00"><span>/ 100</span></div><small id="computerError" class="error"></small></div>
+          </div>
+
+          <div class="form-actions"><button class="calculate" type="submit">Prepare result</button><button class="reset" type="reset">Clear entries</button></div>
+        </form>
+      </section>
+
+      <aside class="rules">
+        <h2>Grading Table</h2>
+        <table>
+          <thead><tr><th>Marks %</th><th>Grade</th></tr></thead>
+          <tbody><tr><td>90 or above</td><td>A+</td></tr><tr><td>80 – 89.99</td><td>A</td></tr><tr><td>70 – 79.99</td><td>B</td></tr><tr><td>60 – 69.99</td><td>C</td></tr><tr><td>50 – 59.99</td><td>D</td></tr><tr><td>40 – 49.99</td><td>E</td></tr><tr><td>Below 40</td><td>F</td></tr></tbody>
+        </table>
+        <p class="rule-note">Pass requires 35 or more in every subject.</p>
+      </aside>
+    </div>
+
+    <section id="resultCard" class="result" hidden>
+      <div class="result-head"><div><span>EXAMINATION RESULT</span><h2 id="studentName"></h2></div><strong id="statusBadge"></strong></div>
+      <div class="summary">
+        <div><span>Total</span><b id="totalMarks">0</b></div><div><span>Percentage</span><b id="percentage">0%</b></div>
+        <div><span>Average</span><b id="average">0</b></div><div><span>Grade</span><b id="grade">–</b></div>
+      </div>
+      <div class="percentage-line"><div><span>Percentage obtained</span><b id="progressText">0%</b></div><div class="track"><i id="progressBar"></i></div></div>
+      <p id="performance" class="performance"></p>
+      <div class="subject-results"><div><h3>Subject-wise statement</h3><button id="printBtn" type="button">Print mark sheet</button></div><table><thead><tr><th>Subject</th><th>Marks secured</th><th>Result</th></tr></thead><tbody id="subjectTable"></tbody></table></div>
+      <div class="result-footer"><span>Office copy</span><span>Checked by: ____________</span></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
